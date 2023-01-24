@@ -68,12 +68,6 @@ resource "aws_iam_policy_attachment" "attach_for_worker" {
   policy_arn = aws_iam_policy.policy_for_worker_role.arn
 }
 
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> dev
 resource "aws_iam_instance_profile" "profile_for_master" {
   name  = var.profile_for_master
   role = aws_iam_role.role_for_master.name
