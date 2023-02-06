@@ -67,7 +67,7 @@ pipeline {
                 sh "sed -i s/HELM_VERSION/${BUILD_NUMBER}/ k8s/petclinic_chart/Chart.yaml"
                 sh "rancher kubectl delete secret regcred -n petclinic-prod-ns || true"
                 sh """
-                rancher kubectl create secret generic regcred -n petclinic-prod-ns \
+                rancher kubectl create secret generic regcred -n oliver-prod-ns \
                 --from-file=.dockerconfigjson=$JENKINS_HOME/.docker/config.json \
                 --type=kubernetes.io/dockerconfigjson
                 """
