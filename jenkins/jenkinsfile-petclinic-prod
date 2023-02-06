@@ -65,7 +65,7 @@ pipeline {
                 sh "rancher login $RANCHER_URL --context $RANCHER_CONTEXT --token $RANCHER_CREDS_USR:$RANCHER_CREDS_PSW"
                 sh "envsubst < k8s/petclinic_chart/values-template.yaml > k8s/petclinic_chart/values.yaml"
                 sh "sed -i s/HELM_VERSION/${BUILD_NUMBER}/ k8s/petclinic_chart/Chart.yaml"
-                sh "rancher kubectl delete secret regcred -n petclinic-prod-ns || true"
+                sh "rancher kubectl delete secret regcred -n oliver-prod-ns || true"
                 sh """
                 rancher kubectl create secret generic regcred -n oliver-prod-ns \
                 --from-file=.dockerconfigjson=$JENKINS_HOME/.docker/config.json \
