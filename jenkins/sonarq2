@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        JAVA_HOME=sh(script:"echo $PATH:/usr/bin/", returnStdout:true).trim()
+        JAVA_HOME=sh(script:"echo $PATH:/usr/bin", returnStdout:true).trim()
     }
 
     stages {
